@@ -22,6 +22,8 @@ window.addEventListener('load', function() {
 
   ctx.strokeStyle = "rgb(0, 0, 0)";
   ctx.lineWidth = 9;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
 
   canvas.addEventListener('mousedown', function(e) {
     drawing = false;
