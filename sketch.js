@@ -6,6 +6,13 @@ fillToMaximum = function() {
   canvas.height = document.body.clientHeight;
 };
 
+setContextStyles = function() {
+  ctx.strokeStyle = "rgb(0, 0, 0)";
+  ctx.lineWidth = 9;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+};
+
 x = function(e) {
   return e.layerX - canvas.offsetLeft;
 };
@@ -19,11 +26,7 @@ window.addEventListener('load', function() {
   ctx = canvas.getContext('2d');
 
   fillToMaximum();
-
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineWidth = 9;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
+  setContextStyles();
 
   canvas.addEventListener('mousedown', function(e) {
     drawing = false;
@@ -39,7 +42,12 @@ window.addEventListener('load', function() {
     }
   });
 
-  canvas.addEventListener('mouseup', function () {
+  canvas.addEventListener('mouseup', function() {
     drawing = false;
+  });
+
+  document.getElementById('reset').addEventListener('mouseup', function() {
+    fillToMaximum();
+    setContextStyles();
   });
 });
