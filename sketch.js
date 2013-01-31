@@ -55,4 +55,6 @@ window.addEventListener('load', function() {
   brushSizeEl.addEventListener('change', function(e) {
     setContextStyles(e.currentTarget.value);
   });
+
+  document.body.className += " loaded";
 });
