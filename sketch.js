@@ -1,12 +1,6 @@
 var canvas, ctx, brushSizeEl;
 var drawing = false;
 
-save = function() {
-  canvas.toBlob(function(blob) {
-    saveAs(blob, "tab-sketch.png");
-  });
-}
-
 fillToMaximum = function() {
   canvas.width = document.body.clientWidth;
   canvas.height = document.body.clientHeight;
@@ -47,7 +41,7 @@ onLoad = function() {
   });
 
   canvas.addEventListener('mousemove', function(e) {
-    if(drawing){
+    if(drawing) {
       ctx.lineTo(x(e), y(e));
       ctx.stroke();
     }
@@ -63,7 +57,9 @@ onLoad = function() {
   });
 
   document.getElementById('save').addEventListener('mouseup', function() {
-    save();
+    canvas.toBlob(function(blob) {
+      saveAs(blob, "tab-sketch.png");
+    });
   });
 
   brushSizeEl.addEventListener('change', function(e) {
