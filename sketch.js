@@ -1,6 +1,12 @@
 var canvas, ctx, brushSizeEl;
 var drawing = false;
 
+save = function() {
+  canvas.toBlob(function(blob) {
+    saveAs(blob, "tab-sketch.png");
+  });
+}
+
 fillToMaximum = function() {
   canvas.width = document.body.clientWidth;
   canvas.height = document.body.clientHeight;
@@ -54,6 +60,10 @@ onLoad = function() {
   document.getElementById('reset').addEventListener('mouseup', function() {
     fillToMaximum();
     setContextStyles(brushSizeEl.value);
+  });
+
+  document.getElementById('save').addEventListener('mouseup', function() {
+    save();
   });
 
   brushSizeEl.addEventListener('change', function(e) {
