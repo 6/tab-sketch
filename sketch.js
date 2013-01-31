@@ -1,4 +1,4 @@
-var canvas, ctx;
+var canvas, ctx, brushSizeEl;
 var drawing = false;
 
 fillToMaximum = function() {
@@ -6,9 +6,9 @@ fillToMaximum = function() {
   canvas.height = document.body.clientHeight;
 };
 
-setContextStyles = function() {
+setContextStyles = function(brushSize) {
   ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineWidth = 9;
+  ctx.lineWidth = brushSize * 2;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 };
@@ -24,9 +24,10 @@ y = function(e) {
 window.addEventListener('load', function() {
   canvas = document.getElementById('sketch');
   ctx = canvas.getContext('2d');
+  brushSizeEl = document.getElementById('brush-size');
 
   fillToMaximum();
-  setContextStyles();
+  setContextStyles(brushSizeEl.value);
 
   canvas.addEventListener('mousedown', function(e) {
     drawing = false;
@@ -48,6 +49,10 @@ window.addEventListener('load', function() {
 
   document.getElementById('reset').addEventListener('mouseup', function() {
     fillToMaximum();
-    setContextStyles();
+    setContextStyles(brushSizeEl.value);
+  });
+
+  brushSizeEl.addEventListener('change', function(e) {
+    setContextStyles(e.currentTarget.value);
   });
 });
