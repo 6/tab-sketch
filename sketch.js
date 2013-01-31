@@ -21,7 +21,11 @@ y = function(e) {
   return e.layerY - canvas.offsetTop;
 };
 
-window.addEventListener('load', function() {
+onLoad = function() {
+  if(document.body.clientWidth === 0 && document.body.clientHeight === 0)
+    // Not actually loaded yet, wait a few more ms
+    return window.setTimeout(onLoad, 25);
+
   canvas = document.getElementById('sketch');
   ctx = canvas.getContext('2d');
   brushSizeEl = document.getElementById('brush-size');
@@ -57,4 +61,6 @@ window.addEventListener('load', function() {
   });
 
   document.body.className += " loaded";
-});
+};
+
+window.addEventListener('load', onLoad);
