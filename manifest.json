@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "Tab Sketch",
+  "version": "0.1",
+  "description": "A blank drawing canvas for new tabs",
+  "chrome_url_overrides": {
+    "newtab": "sketch.html"
+  }
+}
