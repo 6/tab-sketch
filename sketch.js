@@ -1,11 +1,9 @@
 var canvas, ctx;
 var drawing = false;
 
-reRender = function() {
+fillToMaximum = function() {
   canvas.width = document.body.clientWidth;
   canvas.height = document.body.clientHeight;
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineWidth = 9;
 };
 
 x = function(e) {
@@ -20,7 +18,10 @@ window.addEventListener('load', function() {
   canvas = document.getElementById('sketch');
   ctx = canvas.getContext('2d');
 
-  reRender();
+  fillToMaximum();
+
+  ctx.strokeStyle = "rgb(0, 0, 0)";
+  ctx.lineWidth = 9;
 
   canvas.addEventListener('mousedown', function(e) {
     drawing = false;
