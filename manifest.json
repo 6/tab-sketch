@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Tab Sketch",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Converts the new tab window into a whiteboard.",
   "chrome_url_overrides": {
     "newtab": "sketch.html"
