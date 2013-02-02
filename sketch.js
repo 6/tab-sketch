@@ -1,5 +1,4 @@
-var canvas, ctx, brushSizeEl;
-var drawing = false;
+var canvas, ctx, brushSizeEl, drawing;
 
 fillToMaximum = function() {
   canvas.width = document.body.clientWidth;
@@ -29,6 +28,7 @@ onLoad = function() {
   canvas = document.getElementById('sketch');
   ctx = canvas.getContext('2d');
   brushSizeEl = document.getElementById('brush-size');
+  drawing = false;
 
   fillToMaximum();
   setContextStyles(brushSizeEl.value);
