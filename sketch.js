@@ -51,11 +51,6 @@ onLoad = function() {
     drawing = false;
   });
 
-  document.getElementById('reset').addEventListener('mouseup', function() {
-    fillToMaximum();
-    setContextStyles(brushSizeEl.value);
-  });
-
   document.getElementById('save').addEventListener('mouseup', function() {
     canvas.toBlob(function(blob) {
       saveAs(blob, "tab-sketch.png");
