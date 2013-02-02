@@ -52,18 +52,19 @@ onLoad = function() {
     drawing = false;
   });
 
-  document.getElementById('save').addEventListener('mouseup', function() {
-    canvas.toBlob(function(blob) {
-      saveAs(blob, "tab-sketch.png");
-    });
-  });
-
   brushSizeEl.addEventListener('change', function(e) {
     setContextStyles(brushSizeEl.value, brushColorEl.value);
   });
 
   brushColorEl.addEventListener('change', function(e) {
     setContextStyles(brushSizeEl.value, brushColorEl.value);
+  });
+
+  Mousetrap.bind(['command+s', 'ctrl+s'], function(e) {
+    e.preventDefault();
+    canvas.toBlob(function(blob) {
+      saveAs(blob, "tab-sketch.png");
+    });
   });
 
   document.body.className += " loaded";
