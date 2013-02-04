@@ -8,6 +8,9 @@ fillToMaximum = function() {
 setContextStyles = function(brushSize, brushColor) {
   ctx.strokeStyle = brushColor;
   ctx.lineWidth = brushSize;
+  brushColorEl.style.backgroundColor = brushColor;
+  brushColorEl.style.width = brushSize+"px";
+  brushColorEl.style.height = brushSize+"px";
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 };
