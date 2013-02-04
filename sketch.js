@@ -11,6 +11,8 @@ setContextStyles = function(brushSize, brushColor) {
   brushColorEl.style.backgroundColor = brushColor;
   brushColorEl.style.width = brushSize+"px";
   brushColorEl.style.height = brushSize+"px";
+  brushColorEl.style.marginLeft = ((brushSize / -2) - 2) + "px";
+  brushColorEl.style.marginTop = ((brushSize / -2) - 2) + "px";
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 };
