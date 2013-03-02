@@ -93,7 +93,7 @@
       <div class="popup"> \
         <div class="content"> \
         </div> \
-        <a href="#" class="close"><img src="/facebox/closelabel.png" title="close" class="close_image" /></a> \
+        <a href="#" class="close"><img src="/closelabel.png" title="close" class="close_image" /></a> \
       </div> \
     </div>'
     },
@@ -105,7 +105,7 @@
 
       $('#facebox .content').empty()
       $('#facebox .body').children().hide().end().
-        append('<div class="loading"><img src="'+$.facebox.settings.loadingImage+'"/></div>')
+        append('<div class="loading"></div>')
 
       $('#facebox').css({
         top:  getPageScroll()[1] + (getPageHeight() / 10),
@@ -177,9 +177,8 @@
     if (settings) $.extend($.facebox.settings, settings)
     $('body').append($.facebox.settings.faceboxHtml)
 
-    var preload = [ new Image(), new Image() ]
+    var preload = [ new Image() ]
     preload[0].src = $.facebox.settings.closeImage
-    preload[1].src = $.facebox.settings.loadingImage
 
     $('#facebox').find('.b:first, .bl').each(function() {
       preload.push(new Image())
