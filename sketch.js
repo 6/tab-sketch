@@ -25,6 +25,10 @@ y = function(e) {
   return e.layerY - canvas.offsetTop;
 };
 
+isMac = function() {
+  return !!navigator.appVersion.match(/Macintosh/);
+};
+
 onLoad = function() {
   if(document.body.clientWidth === 0 && document.body.clientHeight === 0)
     // Not actually loaded yet, wait a few more ms
@@ -71,6 +75,17 @@ onLoad = function() {
       saveAs(blob, "tab-sketch.png");
     });
   });
+
+  var modifier;
+  if(isMac()) {
+    modifier = "&#8984;";
+  }
+  else {
+    modifier = "Ctrl";
+  }
+  $("#help-modal .modifier").html(modifier);
+
+  $('a[rel*=facebox]').facebox({closeImage:'closelabel.png'});
 
   document.body.className += " loaded";
 };
