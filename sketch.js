@@ -15,6 +15,9 @@ setContextStyles = function(brushSize, brushColor) {
   brushColorEl.style.marginTop = ((brushSize / -2) - 2) + "px";
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
+
+  localStorage.brushSize = brushSize;
+  localStorage.brushColor = brushColor;
 };
 
 x = function(e) {
@@ -36,9 +39,17 @@ onLoad = function() {
 
   canvas = document.getElementById('sketch');
   ctx = canvas.getContext('2d');
+
   brushSizeEl = document.getElementById('brush-size');
   brushColorEl = document.getElementById('brush-color');
   drawing = false;
+
+  if(localStorage.brushSize) {
+    brushSizeEl.value = localStorage.brushSize;
+  }
+  if(localStorage.brushColor) {
+    brushColorEl.value = localStorage.brushColor;
+  }
 
   fillToMaximum();
   setContextStyles(brushSizeEl.value, brushColorEl.value);
